@@ -1,4 +1,4 @@
-Lasso.js sample app: lasso-es6-async
+lasso-issue-85
 ====================================
 
 This sample app demonstrates how Lasso.js can be used to transport ES6 code to the browser. The ES6 code is transpiled to ES5 using Babel.
@@ -6,8 +6,8 @@ This sample app demonstrates how Lasso.js can be used to transport ES6 code to t
 # Running this sample
 
 ```bash
-git clone git@github.com:lasso-js-samples/lasso-es6.git
-cd lasso-es6
+git clone https://github.com/patrick-steele-idem/lasso-issue-85
+cd lasso-issue-85
 npm install
 node .
 ```
