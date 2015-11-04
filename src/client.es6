@@ -1,5 +1,4 @@
-import testClasses from "./test-classes";
-import testFreeze from "./test-freeze";
+var ok = require('assert').ok;
 
 function reportResult(name, err) {
     var ul = document.getElementById('testResults');
@@ -20,14 +19,31 @@ function reportResult(name, err) {
     ul.appendChild(li);
 }
 
-function runTest(name, func) {
-    try {
-        func();
-        reportResult(name);
-    } catch(err) {
-        reportResult(name, err);
-    }
+function loadProto1(callback) {
+    require('raptor-loader').async(() => {
+        import proto1 from './layouts/proto1/index.es6';
+
+        try {
+            ok(proto1() === 'proto1', 'Expected proto1() to equal "proto1"');
+            reportResult('async loading - proto1');
+        } catch(e) {
+            reportResult('async loading - proto1', e);
+        }
+    });
 }
 
-runTest('Classes', testClasses);
-runTest('Object.freeze', testFreeze);
+function loadProto2(callback) {
+    require('raptor-loader').async(() => {
+        import proto1 from './layouts/proto2/index.es6';
+
+        try {
+            ok(proto1() === 'proto2', 'Expected proto1() to equal "proto2"');
+            reportResult('async loading - proto2');
+        } catch(e) {
+            reportResult('async loading - proto2', e);
+        }
+    });
+}
+
+loadProto1();
+loadProto2();

@@ -1,4 +1,4 @@
-Lasso.js sample app: lasso-es6
+Lasso.js sample app: lasso-es6-async
 ====================================
 
 This sample app demonstrates how Lasso.js can be used to transport ES6 code to the browser. The ES6 code is transpiled to ES5 using Babel.
